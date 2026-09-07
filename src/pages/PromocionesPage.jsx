@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { WhatsAppIcon } from '../components/common/WhatsAppIcon';
 
 const PROMOTIONS_DATA = [
   {
@@ -9,9 +10,9 @@ const PROMOTIONS_DATA = [
     badge: '10% OFF DIRECTO',
     title: 'Martes de Parejas (10% OFF)',
     image: '/assets/miraflores-deluxe.jpg',
-    description: '10% de descuento directo en cualquier suite por horas o noche.',
+    description: '10% de descuento directo en cualquier habitación por horas o noche.',
     highlights: ['Todas las 4 sedes en Lima', 'Válido horas o pernocte'],
-    whatsappMsg: 'Hola Hotel XNOX, deseo aprovechar la promoción del Martes de Parejas (10% OFF) para reservar una suite.',
+    whatsappMsg: 'Hola Hotel XNOX, deseo aprovechar la promoción del Martes de Parejas (10% OFF) para reservar una habitación.',
     routeParam: 'modality=hours4'
   },
   {
@@ -22,7 +23,7 @@ const PROMOTIONS_DATA = [
     title: 'Pack Romance & Champagne',
     image: '/assets/champagne-suite-bright.jpg',
     description: 'Espumante helado en hielera, copas y pétalos de rosas.',
-    highlights: ['Suites Jacuzzi & Sauna', 'Ambientación previa lista'],
+    highlights: ['Habitaciones Jacuzzi & Sauna', 'Ambientación previa lista'],
     whatsappMsg: 'Hola Hotel XNOX, deseo consultar y reservar el Pack Noche Romántica & Champagne para una ocasión especial.',
     routeParam: 'room=jacuzzi'
   },
@@ -47,7 +48,7 @@ const PROMOTIONS_DATA = [
     image: '/assets/hero-terrace.jpg',
     description: '2 cócteles de autor + 1 hora extra gratis con tu DNI.',
     highlights: ['Presentar DNI en recepción', 'Barman y coctelería 24h'],
-    whatsappMsg: 'Hola Hotel XNOX, es mi semana de cumpleaños y deseo reservar mi suite para disfrutar de mis cócteles de cortesía y la hora extra.',
+    whatsappMsg: 'Hola Hotel XNOX, es mi semana de cumpleaños y deseo reservar mi habitación para disfrutar de mis cócteles de cortesía y la hora extra.',
     routeParam: ''
   },
   {
@@ -59,7 +60,7 @@ const PROMOTIONS_DATA = [
     image: '/assets/gamer-suite-bright.jpg',
     description: 'PlayStation 5 en pantalla gigante 65" 4K y cervezas heladas.',
     highlights: ['Pantalla gigante 65" 4K', 'Balde 4 cervezas heladas'],
-    whatsappMsg: 'Hola Hotel XNOX, deseo reservar el Pack Gamer Pro (6 Horas PS5 + Bebidas) en su suite gamer.',
+    whatsappMsg: 'Hola Hotel XNOX, deseo reservar el Pack Gamer Pro (6 Horas PS5 + Bebidas) en su habitación gamer.',
     routeParam: 'room=gamer'
   },
   {
@@ -215,7 +216,10 @@ export function PromocionesPage() {
                     <button 
                       type="button" 
                       className="promo-details-btn"
-                      onClick={() => setPromoModal(promo)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setPromoModal(promo);
+                      }}
                     >
                       <span>Ver detalles de reserva ➔</span>
                     </button>
@@ -233,7 +237,7 @@ export function PromocionesPage() {
                 ¿Planeas un Aniversario o <span className="text-shimmer-red">Propuesta de Matrimonio?</span>
               </h2>
               <p className="custom-banner-text">
-                Coordinamos contigo en estricta confidencialidad para ambientar la suite antes de tu llegada con arreglos florales especiales, carta de vinos premium, postres artesanales o sorpresas personalizadas.
+                Coordinamos contigo en estricta confidencialidad para ambientar la habitación antes de tu llegada con arreglos florales especiales, carta de vinos premium, postres artesanales o sorpresas personalizadas.
               </p>
               <div className="custom-banner-actions">
                 <a 
@@ -245,7 +249,7 @@ export function PromocionesPage() {
                   Hablar con el Concierge por WhatsApp
                 </a>
                 <Link to="/suites" className="btn btn-secondary btn-lg promo-banner-suites-btn">
-                  Ver Suites Disponibles ➔
+                  Ver Habitaciones Disponibles ➔
                 </Link>
               </div>
             </div>
@@ -255,7 +259,7 @@ export function PromocionesPage() {
           <div className="promo-terms-box reveal-on-scroll">
             <h4 className="promo-terms-title">Términos y Condiciones Generales de las Promociones</h4>
             <ul className="promo-terms-list">
-              <li>Todas las promociones están sujetas a disponibilidad de suites en cada una de las 4 sedes de Lima.</li>
+              <li>Todas las promociones están sujetas a disponibilidad de habitaciones en cada una de las 4 sedes de Lima.</li>
               <li>Las promociones no son acumulables entre sí ni con otros cupones o descuentos vigentes.</li>
               <li>Para hacer válidos los beneficios de cumpleaños, es indispensable presentar documento de identidad (DNI o Pasaporte) en recepción.</li>
               <li>Ingreso exclusivo para mayores de 18 años conforme a la ley peruana.</li>
@@ -265,40 +269,62 @@ export function PromocionesPage() {
         </div>
       </section>
 
-      {/* 5. Cuadrito Modal de Reserva & Confirmación Inmediata */}
+      {/* 5. Modal Amplio de Promoción & Reserva Inmediata (Estilo Suites VIP) */}
       {promoModal && (
         <div className="promo-modal-backdrop" onClick={() => setPromoModal(null)}>
-          <div className="promo-modal-card reveal-scale" onClick={(e) => e.stopPropagation()}>
+          <div className="promo-modal-card room-detail-modal" onClick={(e) => e.stopPropagation()}>
             <button 
               type="button" 
-              className="promo-modal-close-btn"
+              className="modal-close-btn promo-modal-close-btn"
               onClick={() => setPromoModal(null)}
-              aria-label="Cerrar ventana de reserva"
+              aria-label="Cerrar ventana de promoción"
             >
               ✕
             </button>
 
-            <div className="promo-modal-media-header">
-              <img src={promoModal.image} alt={promoModal.title} className="promo-modal-header-img" />
+            <div className="modal-room-header-img promo-modal-media-header">
+              <img src={promoModal.image} alt={promoModal.title} className="modal-room-img promo-modal-header-img" />
               <div className="promo-modal-media-overlay"></div>
-              <span className="promo-modal-badge">{promoModal.badge}</span>
+              <span className="modal-img-tag promo-modal-badge">{promoModal.badge}</span>
             </div>
 
-            <div className="promo-modal-body">
-              <span className="promo-modal-kicker">{promoModal.tag}</span>
-              <h3 className="promo-modal-title">{promoModal.title}</h3>
-              <p className="promo-modal-desc">{promoModal.description}</p>
+            <div className="modal-room-body promo-modal-body">
+              <h3 className="modal-room-title promo-modal-title">{promoModal.title}</h3>
+              <p className="modal-room-quote promo-modal-desc">{promoModal.description}</p>
 
-              <div className="promo-modal-box-alert">
-                <div className="alert-icon-check">✓</div>
-                <div className="alert-text-content">
-                  <strong>Reserva Inmediata con Concierge</strong>
-                  <p>Te comunicamos directamente con recepción para apartar tu suite sin demoras ni trámites engorrosos.</p>
+              {/* Grid de 3 cajas de tarifas / beneficio al estilo Suites */}
+              <div className="modal-pricing-grid promo-modal-grid">
+                <div className="modal-price-box">
+                  <span className="modal-p-label">Categoría</span>
+                  <strong className="modal-p-val promo-p-val">{promoModal.tag}</strong>
+                </div>
+                <div className="modal-price-box highlight">
+                  <span className="modal-p-label">Beneficio Clave</span>
+                  <strong className="modal-p-val promo-p-val highlight-val">{promoModal.badge}</strong>
+                </div>
+                <div className="modal-price-box">
+                  <span className="modal-p-label">Modalidad Válida</span>
+                  <strong className="modal-p-val promo-p-val">Horas & Pernocte</strong>
                 </div>
               </div>
 
+              {/* Lista en 2 columnas de beneficios y amenidades */}
+              <div className="modal-features-section promo-modal-features">
+                <span className="modal-features-title">Comodidades & Beneficios Incluidos:</span>
+                <ul className="modal-features-list">
+                  {promoModal.highlights?.map((h, i) => (
+                    <li key={i}>✓ {h}</li>
+                  ))}
+                  <li>✓ Válido en las 4 sedes de Lima</li>
+                  <li>✓ Coordinación directa con Concierge 24/7</li>
+                  <li>✓ Cochera privada techada y discreta</li>
+                  <li>✓ Reserva inmediata sin trámites engorrosos</li>
+                </ul>
+              </div>
+
+              {/* Sedes disponibles */}
               <div className="promo-modal-sedes-grid">
-                <span className="promo-sedes-header-text">Disponible en nuestras 4 sedes:</span>
+                <span className="promo-sedes-header-text">Disponible en nuestras 4 sedes de Lima:</span>
                 <div className="promo-sedes-badges">
                   <span>📍 Miraflores</span>
                   <span>📍 Naranjal</span>
@@ -307,17 +333,17 @@ export function PromocionesPage() {
                 </div>
               </div>
 
-              <div className="promo-modal-action-buttons">
+              {/* Botón WhatsApp de Acción Directa */}
+              <div className="modal-action-bar">
                 <a 
                   href={`https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent(promoModal.whatsappMsg)}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="btn btn-whatsapp btn-block btn-lg promo-modal-wa-btn"
+                  className="btn btn-primary btn-block promo-modal-reserve-btn"
+                  onClick={() => setPromoModal(null)}
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                  </svg>
-                  <span>Chatear y Confirmar por WhatsApp</span>
+                  <WhatsAppIcon size={20} />
+                  <span>Reservar esta Promoción por WhatsApp →</span>
                 </a>
               </div>
             </div>

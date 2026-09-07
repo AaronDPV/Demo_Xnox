@@ -17,7 +17,7 @@ export function PricingSuites({ onReserveSuite }) {
       <div className="container">
         <div className="section-header reveal-on-scroll">
           <span className="section-tag">Tarifario Transparente</span>
-          <h2>Nuestras <span className="text-gradient-red">Suites & Precios</span></h2>
+          <h2>Nuestras <span className="text-gradient-red">Habitaciones & Precios</span></h2>
           <p>Tarifas transparentes por horas o pernocte. Todo incluido y privacidad garantizada.</p>
           <div className="vertical-scroll-line" style={{ height: '40px', margin: '14px auto 0' }}></div>
         </div>
@@ -47,21 +47,21 @@ export function PricingSuites({ onReserveSuite }) {
               className={`filter-chip ${categoryFilter === 'all' ? 'active' : ''}`}
               onClick={() => setCategoryFilter('all')}
             >
-              Todas las Suites
+              Todas las Habitaciones
             </button>
             <button 
               type="button" 
               className={`filter-chip ${categoryFilter === 'gamer' ? 'active' : ''}`}
               onClick={() => setCategoryFilter('gamer')}
             >
-              Suites Gamer (PS5)
+              Habitaciones Gamer (PS5)
             </button>
             <button 
               type="button" 
               className={`filter-chip ${categoryFilter === 'jacuzzi' ? 'active' : ''}`}
               onClick={() => setCategoryFilter('jacuzzi')}
             >
-              Suites Jacuzzi
+              Habitaciones Jacuzzi
             </button>
             <button 
               type="button" 

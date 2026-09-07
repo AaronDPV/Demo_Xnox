@@ -58,7 +58,7 @@ const REVIEWS_DATA = [
     isLocalGuide: false,
     rating: 5,
     date: 'Hace 1 año',
-    text: 'Excelente ambiente, los recomiendo totalmente. La iluminación tenue, el sonido y la limpieza de la suite están a otro nivel. Es el lugar ideal en Lima para celebrar una fecha especial en pareja.',
+    text: 'Excelente ambiente, los recomiendo totalmente. La iluminación tenue, el sonido y la limpieza de la habitación están a otro nivel. Es el lugar ideal en Lima para celebrar una fecha especial en pareja.',
     tag: 'Ambiente & Celebración'
   },
   {
@@ -70,8 +70,8 @@ const REVIEWS_DATA = [
     isLocalGuide: true,
     rating: 5,
     date: 'Hace 1 mes',
-    text: 'Una experiencia muy divertida y fuera de lo habitual. Fuimos a la suite con temática gamer y jacuzzi, todo moderno, súper limpio y funcionando al 100%. Gran atención y amabilidad del personal.',
-    tag: 'Suite Gamer PS5'
+    text: 'Una experiencia muy divertida y fuera de lo habitual. Fuimos a la habitación con temática gamer y jacuzzi, todo moderno, súper limpio y funcionando al 100%. Gran atención y amabilidad del personal.',
+    tag: 'Habitación Gamer PS5'
   },
   {
     id: 'rev-cristhofer',
@@ -183,7 +183,7 @@ export function TestimonialsSection() {
           </h2>
           
           <p className="testimonials-simple-subtitle">
-            Comentarios y experiencias compartidas por parejas que visitaron nuestras suites.
+            Comentarios y experiencias compartidas por parejas que visitaron nuestras habitaciones.
           </p>
         </div>
       </div>

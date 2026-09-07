@@ -12,7 +12,7 @@ const GALLERY_ITEMS = [
   {
     id: 2,
     title: 'PlayStation 5 & Luces Neón',
-    tag: 'SUITE GAMER 4K',
+    tag: 'HABITACIÓN GAMER 4K',
     img: '/assets/gamer-suite-bright.jpg',
     roomId: 'gamer'
   },
@@ -25,7 +25,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 4,
-    title: 'Deluxe Suite Miraflores',
+    title: 'Habitación Deluxe Miraflores',
     tag: 'VISTA PANORÁMICA',
     img: '/assets/miraflores-deluxe.jpg',
     roomId: 'miraflores'
@@ -39,7 +39,7 @@ const GALLERY_ITEMS = [
   },
   {
     id: 6,
-    title: 'Galaxy Suite & Proyector Estelar',
+    title: 'Habitación Galaxy & Proyector Estelar',
     tag: 'ATMÓSFERA SENSORIAL',
     img: '/assets/galaxy-suite.jpg',
     roomId: 'galaxy'

@@ -79,7 +79,7 @@ export function Navbar() {
                   className={() => (location.pathname.startsWith('/suites') ? 'country-nav-link active' : 'country-nav-link')}
                   onClick={handleLinkClick}
                 >
-                  Suites & Precios
+                  Habitaciones & Precios
                 </NavLink>
               </li>
               
@@ -233,7 +233,7 @@ export function Navbar() {
                 <NavLink to="/" end onClick={handleLinkClick}>Inicio</NavLink>
               </li>
               <li>
-                <NavLink to="/suites" onClick={handleLinkClick}>Suites & Precios</NavLink>
+                <NavLink to="/suites" onClick={handleLinkClick}>Habitaciones & Precios</NavLink>
               </li>
               <li className="mobile-sedes-item">
                 <NavLink to="/sedes" onClick={handleLinkClick} className="mobile-sedes-main-link">
@@ -263,23 +263,6 @@ export function Navbar() {
               </li>
             </ul>
 
-            {/* Selector de Tema en Móvil */}
-            <div className="mobile-theme-wrap">
-              <button 
-                type="button" 
-                className={`mobile-theme-pill-btn ${isDark ? 'is-dark' : 'is-light'}`}
-                onClick={toggleTheme}
-                aria-label={isDark ? 'Cambiar a Modo Claro' : 'Cambiar a Modo Oscuro'}
-              >
-                <span className="mobile-theme-icon-badge">
-                  {isDark ? '☀️' : '🌙'}
-                </span>
-                <span className="mobile-theme-text">
-                  {isDark ? 'Modo Oscuro Activo (Toca para Claro)' : 'Modo Claro Activo (Toca para Oscuro)'}
-                </span>
-              </button>
-            </div>
-
             <div className="mobile-drawer-action">
               <a 
                 href="https://api.whatsapp.com/send?phone=51936793821&text=Hola%20Hotel%20XNOX,%20deseo%20consultar%20disponibilidad%20y%20reservar%20una%20habitaci%C3%B3n" 
@@ -290,15 +273,6 @@ export function Navbar() {
                 style={{ textDecoration: 'none' }}
               >
                 Reservar por WhatsApp
-              </a>
-              <a 
-                href="https://api.whatsapp.com/send?phone=51936793821&text=Hola%20Hotel%20XNOX,%20deseo%20consultar%20disponibilidad" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn btn-whatsapp btn-block" 
-                style={{ marginTop: '10px' }}
-              >
-                WhatsApp Concierge
               </a>
             </div>
           </div>

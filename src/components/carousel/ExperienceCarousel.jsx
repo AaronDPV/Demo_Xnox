@@ -22,7 +22,7 @@ const CAROUSEL_EXPERIENCES = [
     badge: 'ENTRETENIMIENTO TOP',
     title: 'Experiencia Gamer PS5',
     tagline: 'Consola PlayStation 5 de última generación con pantalla 65" 4K HDR, mandos DualSense y luces RGB inmersivas.',
-    img: '/assets/gamer-suite-bright.jpg',
+    img: '/assets/imagen1.jpeg',
     chips: ['PlayStation 5', 'Pantalla 65" 4K', 'Mandos DualSense']
   },
   {
@@ -30,7 +30,7 @@ const CAROUSEL_EXPERIENCES = [
     badge: 'ROMANCE & CONFORT',
     title: 'Jacuzzi & Cromoterapia',
     tagline: 'Tina circular doble de hidromasaje en mármol italiano con iluminación sumergida, sales minerales y espuma.',
-    img: '/assets/champagne-suite-bright.jpg',
+    img: '/assets/imagen3.jpeg',
     chips: ['Tina de Mármol', 'Cromoterapia LED', 'Espuma & Relax']
   }
 ];

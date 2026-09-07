@@ -31,7 +31,7 @@ const PILLARS_DATA = [
       </svg>
     ),
     title: 'Tecnología & Entretenimiento 4K',
-    desc: 'Consolas PlayStation 5 en suites gamer, Smart TVs 4K gigantes de 55" y 65", iluminación ambiental sensorial LED regulable y WiFi por fibra óptica de alta velocidad.'
+    desc: 'Consolas PlayStation 5 en habitaciones gamer, Smart TVs 4K gigantes de 55" y 65", iluminación ambiental sensorial LED regulable y WiFi por fibra óptica de alta velocidad.'
   },
   {
     icon: (

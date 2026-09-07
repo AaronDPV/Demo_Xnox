@@ -5,9 +5,9 @@ export function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
 
   const quickActions = [
-    { label: 'Suite Gamer con PS5', text: 'Hola Hotel XNOX, deseo consultar disponibilidad para la Suite Gamer con PS5' },
-    { label: 'Promoción Suite Jacuzzi', text: 'Hola Hotel XNOX, deseo consultar la promoción de la Suite Jacuzzi' },
-    { label: 'Master Sauna Finlandés', text: 'Hola Hotel XNOX, deseo consultar la Master Suite con Sauna Finlandés' },
+    { label: 'Habitación Gamer con PS5', text: 'Hola Hotel XNOX, deseo consultar disponibilidad para la Habitación Gamer con PS5' },
+    { label: 'Habitación con Jacuzzi', text: 'Hola Hotel XNOX, deseo consultar la promoción de la Habitación con Jacuzzi' },
+    { label: 'Habitación Sauna Finlandés', text: 'Hola Hotel XNOX, deseo consultar la Habitación con Sauna Finlandés' },
     { label: 'Sedes y Cocheras Privadas', text: 'Hola Hotel XNOX, deseo información de la sede más cercana con cochera privada' },
   ];
 

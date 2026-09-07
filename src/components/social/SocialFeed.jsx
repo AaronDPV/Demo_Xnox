@@ -9,7 +9,7 @@ export function SocialFeed({ onOpenStory, onOpenVideo }) {
         <div className="section-header reveal-on-scroll">
           <span className="section-tag">En Tendencia Social</span>
           <h2>Como lo Viste en <span className="text-red">TikTok & Instagram</span></h2>
-          <p>Los videos más virales de nuestras suites temáticas. Mira los tours, las reacciones de las parejas y sorpresas preparadas en Hotel XNOX.</p>
+          <p>Los videos más virales de nuestras habitaciones temáticas. Mira los tours, las reacciones de las parejas y sorpresas preparadas en Hotel XNOX.</p>
         </div>
 
         <InstagramStories onOpenStory={onOpenStory} />

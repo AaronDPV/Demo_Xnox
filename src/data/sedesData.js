@@ -7,7 +7,7 @@ export const SEDES_DATA = {
     photo: '/assets/facade-santa-anita.jpg',
     mapUrl: 'https://maps.google.com/?q=Santa+Anita+Lima',
     features: [
-      'Suites Temáticas con Jacuzzi Climatizado',
+      'Habitaciones Temáticas con Jacuzzi Climatizado',
       'Cochera privada interna con portón automático',
       'Atención discreta las 24 Horas'
     ]
@@ -20,7 +20,7 @@ export const SEDES_DATA = {
     photo: '/assets/facade-lince.jpg',
     mapUrl: 'https://maps.google.com/?q=Lince+Lima',
     features: [
-      'Edificio de estreno con suites de cristal y luces LED',
+      'Edificio de estreno con habitaciones de cristal y luces LED',
       'Consolas PS5 en 4K y saunas privados',
       'Ingreso discreto 24/7 y bar de autor'
     ]
@@ -34,7 +34,7 @@ export const SEDES_DATA = {
     mapUrl: 'https://maps.google.com/?q=San+Isidro+Lima',
     features: [
       'Torre contemporánea con máxima privacidad',
-      'Master Suites con hidromasaje y cromoterapia',
+      'Habitaciones Master con hidromasaje y cromoterapia',
       'Room service gourmet y coctelería 24H'
     ]
   },
@@ -46,7 +46,7 @@ export const SEDES_DATA = {
     photo: '/assets/facade-ate.jpg',
     mapUrl: 'https://maps.google.com/?q=Ate+Lima',
     features: [
-      'Suites Confort y VIP Jacuzzi desde S/ 45',
+      'Habitaciones Confort y VIP Jacuzzi desde S/ 45',
       'Estacionamiento techado y privado',
       'Recepción 24 horas y total discreción'
     ]
@@ -59,8 +59,8 @@ export const SEDES_DATA = {
     photo: '/assets/facade-los-olivos.jpg',
     mapUrl: 'https://maps.google.com/?q=Los+Olivos+Lima',
     features: [
-      'Suites Jacuzzi VIP y Gamer PS5 Ultimate',
-      'Master Suite con Sauna Finlandés de Cristal',
+      'Habitaciones Jacuzzi VIP y Gamer PS5 Ultimate',
+      'Habitación Master con Sauna Finlandés de Cristal',
       'Cochera interna 100% privada con portón eléctrico'
     ]
   },
@@ -78,9 +78,9 @@ export const SEDES_DATA = {
     phone: '01 4348268 / +51 936 793 821',
     schedule: 'Atención Continua 24 Horas / 365 Días',
     roomIds: ['jacuzzi', 'gamer', 'galaxy', 'confort'],
-    badge: '4 Suites Disponibles',
+    badge: '4 Habitaciones Disponibles',
     features: [
-      'Suites Gamer VIP & Jacuzzi Climatizado',
+      'Habitaciones Gamer VIP & Jacuzzi Climatizado',
       'Cochera interna 100% privada con portón eléctrico',
       'Cocktail Bar y Room Service 24 horas'
     ]
@@ -98,9 +98,9 @@ export const SEDES_DATA = {
     phone: '01 4348268 / +51 936 793 821',
     schedule: 'Atención Continua 24 Horas / 365 Días',
     roomIds: ['jacuzzi', 'gamer', 'galaxy', 'confort'],
-    badge: '4 Suites Disponibles',
+    badge: '4 Habitaciones Disponibles',
     features: [
-      'Consolas PS5 y Suite Jacuzzi desde S/99',
+      'Consolas PS5 y Habitación Jacuzzi desde S/99',
       'Estacionamiento directo con portón eléctrico',
       'Fácil acceso desde la Panamericana Norte'
     ]
@@ -112,7 +112,7 @@ export const SEDES_DATA = {
     tag: 'Sauna & Relax',
     address: 'Av. Naranjal 1406, Los Olivos',
     photo: '/assets/sede-naranjal.png',
-    viewTagline: 'Sede insignia de relax y spa en Lima Norte, equipada en exclusiva con la Master Suite Sauna Finlandés.',
+    viewTagline: 'Sede insignia de relax y spa en Lima Norte, equipada en exclusiva con la Habitación Sauna Finlandés.',
     mapUrl: 'https://maps.google.com/?q=Av+Naranjal+1406+Los+Olivos+Lima',
     googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124875.35246890872!2d-77.0633246877831!3d-12.019079696773833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cf5baadd369d%3A0x37f6da6c0b640caf!2sHotel%20Xnox!5e0!3m2!1ses-419!2spe!4v1788745350090!5m2!1ses-419!2spe',
     phone: '01 4348268 / +51 936 793 821',
@@ -120,9 +120,9 @@ export const SEDES_DATA = {
     roomIds: ['sauna', 'jacuzzi', 'gamer', 'confort'],
     badge: 'Sauna Finlandés Exclusivo',
     features: [
-      'Master Suite con Sauna Finlandés de Cristal',
+      'Habitación Sauna Finlandés de Cristal',
       'Jacuzzi doble con cascada de agua',
-      'Máxima discreción y servicio a la suite'
+      'Máxima discreción y servicio a la habitación'
     ]
   },
   centro: {
@@ -138,9 +138,9 @@ export const SEDES_DATA = {
     phone: '01 4348268 / +51 936 793 821',
     schedule: 'Atención Continua 24 Horas / 365 Días',
     roomIds: ['gamer', 'galaxy', 'confort'],
-    badge: '3 Suites Temáticas',
+    badge: '3 Habitaciones Temáticas',
     features: [
-      'Suites Gamer & Habitaciones Express desde S/45',
+      'Habitaciones Gamer & Express desde S/45',
       'Frente al Parque de la Exposición / Estación Metro',
       'Atención continua y recepción 24/7'
     ]

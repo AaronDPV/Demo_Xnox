@@ -58,14 +58,14 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Suites Links */}
+          {/* Habitaciones Links */}
           <div className="footer-col">
-            <h4 className="footer-col-title">Colección de Suites</h4>
+            <h4 className="footer-col-title">Nuestras Habitaciones</h4>
             <ul className="footer-nav-list">
-              <li><Link to="/suites?cat=gamer">Suite Gamer PS5 4K</Link></li>
-              <li><Link to="/suites?cat=jacuzzi">Suite Jacuzzi VIP</Link></li>
-              <li><Link to="/suites?cat=sauna">Master Sauna & Jacuzzi</Link></li>
-              <li><Link to="/suites?cat=galaxy">Suite Galaxy Neón</Link></li>
+              <li><Link to="/suites?cat=gamer">Habitación Gamer PS5 4K</Link></li>
+              <li><Link to="/suites?cat=jacuzzi">Habitación Jacuzzi VIP</Link></li>
+              <li><Link to="/suites?cat=sauna">Habitación Sauna & Jacuzzi</Link></li>
+              <li><Link to="/suites?cat=galaxy">Habitación Galaxy Neón</Link></li>
               <li><Link to="/suites?cat=confort">Habitación Ejecutiva Confort</Link></li>
             </ul>
           </div>
@@ -73,11 +73,13 @@ export function Footer() {
           {/* Sedes & Direct Access */}
           <div className="footer-col">
             <h4 className="footer-col-title">Sedes & Navegación</h4>
+            <ul className="footer-nav-list">
               <li><Link to="/promociones">Promociones Exclusivas</Link></li>
               <li><Link to="/nosotros">Nosotros & Concepto</Link></li>
               <li><Link to="/sedes">Sedes en Lima</Link></li>
               <li><a href="https://api.whatsapp.com/send?phone=51936793821&text=Hola%20Hotel%20XNOX,%20deseo%20consultar%20disponibilidad%20y%20reservar%20una%20habitaci%C3%B3n" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a></li>
               <li><Link to="/faq">Preguntas Frecuentes</Link></li>
+            </ul>
           </div>
 
           {/* Contact & WhatsApp Action */}

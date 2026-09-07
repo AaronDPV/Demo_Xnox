@@ -89,7 +89,7 @@ export function CountryClubRoomsShowcase({
   const [modalRoom, setModalRoom] = useState(null);
 
   const categories = [
-    { id: 'all', label: 'Todas las Suites' },
+    { id: 'all', label: 'Todas las Habitaciones' },
     { id: 'jacuzzi', label: 'Jacuzzi VIP' },
     { id: 'gamer', label: 'Gamer PS5' },
     { id: 'sauna', label: 'Sauna Master' },
@@ -126,11 +126,11 @@ export function CountryClubRoomsShowcase({
     <div className={`country-rooms-wrapper ${showHeroBanner ? 'has-hero-banner' : ''}`}>
       {/* 1. Hero Banner con Imagen de Fondo (Solo en Suites & Precios) */}
       {showHeroBanner && (
-        <section className="suites-hero-banner" aria-label="Cabecera Suites y Precios">
+        <section className="suites-hero-banner" aria-label="Cabecera Habitaciones y Precios">
           <div className="suites-hero-bg">
             <img 
               src="/assets/miraflores-deluxe.jpg" 
-              alt="Suites y Precios Hotel XNOX" 
+              alt="Habitaciones y Precios Hotel XNOX" 
               className="suites-hero-img" 
             />
             <div className="suites-hero-overlay"></div>
@@ -138,11 +138,11 @@ export function CountryClubRoomsShowcase({
 
           <div className="container suites-hero-content">
             <div className="hero-asturias-tag animate-fade-in-down" style={{ marginBottom: '14px' }}>
-              <span>CATÁLOGO OFICIAL DE SUITES</span>
+              <span>CATÁLOGO OFICIAL DE HABITACIONES</span>
             </div>
             
             <h1 className="suites-hero-title animate-fade-in-up">
-              Nuestras <span className="text-shimmer-red">Suites & Precios</span>
+              Nuestras <span className="text-shimmer-red">Habitaciones & Precios</span>
             </h1>
 
             <div className="hero-asturias-line animate-fade-in-up" style={{ margin: '14px auto' }}></div>
@@ -155,26 +155,26 @@ export function CountryClubRoomsShowcase({
       )}
 
       {/* 2. Sección Principal de Habitaciones */}
-      <section className="country-rooms-section" id="habitaciones" aria-label="Colección de Habitaciones y Suites">
+      <section className="country-rooms-section" id="habitaciones" aria-label="Colección de Habitaciones">
         <div className="container">
           
           {/* Cabecera Editorial Estándar (Solo cuando no hay Hero Banner) */}
           {!showHeroBanner && (
             <div className="section-header">
               <span className="section-tag">
-                {tag || (isCurated ? 'Nuestras Mejores Habitaciones' : 'Catálogo Oficial de Suites')}
+                {tag || (isCurated ? 'Nuestras Mejores Habitaciones' : 'Catálogo Oficial de Habitaciones')}
               </span>
               <h2>
                 {title || (isCurated ? (
-                  <>Habitaciones & <span className="text-shimmer-red">Suites de Autor</span></>
+                  <>Nuestras <span className="text-shimmer-red">Habitaciones de Autor</span></>
                 ) : (
-                  <>Nuestras <span className="text-shimmer-red">Suites & Precios</span></>
+                  <>Nuestras <span className="text-shimmer-red">Habitaciones & Precios</span></>
                 ))}
               </h2>
               <p>
                 {subtitle || (isCurated 
                   ? 'Una selecta curaduría de nuestros espacios más exclusivos: tinas de hidromasaje en mármol, consolas PS5 y ambientación de autor.'
-                  : 'Filtra por categoría, compara tarifas por horas (4h/6h) o pernocte y reserva tu suite con total discreción.')}
+                  : 'Filtra por categoría, compara tarifas por horas (4h/6h) o pernocte y reserva tu habitación con total discreción.')}
               </p>
               <div className="vertical-scroll-line" style={{ height: '42px', margin: '14px auto 0' }}></div>
             </div>
@@ -361,12 +361,12 @@ export function CountryClubRoomsShowcase({
               <span className="curated-cta-tag">Catálogo Completo & Tarifario</span>
               <h3 className="curated-cta-title">¿Buscas filtrar por categoría o comparar todas las tarifas?</h3>
               <p className="curated-cta-desc">
-                Encuentra todas nuestras habitaciones ejecutivas, suites temáticas y compara precios transparentes por horas (4h/6h) o pernocte en nuestra sección especializada.
+                Encuentra todas nuestras habitaciones ejecutivas, temáticas y compara precios transparentes por horas (4h/6h) o pernocte en nuestra sección especializada.
               </p>
             </div>
             <div className="curated-cta-action">
               <Link to="/suites" className="btn btn-primary curated-cta-btn">
-                Ver Todas las Suites & Precios →
+                Ver Todas las Habitaciones & Precios →
               </Link>
             </div>
           </div>
@@ -429,7 +429,7 @@ export function CountryClubRoomsShowcase({
                   onClick={() => setModalRoom(null)}
                 >
                   <WhatsAppIcon size={20} />
-                  <span>Reservar esta Suite por WhatsApp →</span>
+                  <span>Reservar esta Habitación por WhatsApp →</span>
                 </a>
               </div>
             </div>

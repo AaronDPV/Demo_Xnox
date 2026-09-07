@@ -1,7 +1,7 @@
 export const SUITES_DATA = {
   jacuzzi: {
     id: 'jacuzzi',
-    name: 'Suite Jacuzzi VIP',
+    name: 'Habitación Jacuzzi VIP',
     category: 'jacuzzi',
     hours4: 99,
     hours6: 130,
@@ -9,18 +9,19 @@ export const SUITES_DATA = {
     area: '48 m²',
     capacity: '2 huéspedes',
     thumb: '/assets/champagne-suite-bright.jpg',
-    badge: 'Suite Más Solicitada',
+    badge: 'Habitación Más Solicitada',
     sedes: 'Naranjal • Alisos • Miraflores',
     quote: 'Tina de hidromasaje en mármol italiano, ambientación romántica y confort sensorial.',
     bullets: [
       { icon: 'bed', text: 'Cama King Size con lencería de satén premium' },
       { icon: 'bath', text: 'Jacuzzi de mármol con hidromasaje y cromoterapia' },
-      { icon: 'cocktail', text: 'Bar privado, coctelería a la suite y discreción 24/7' }
+      { icon: 'cocktail', text: 'Bar privado, coctelería a la habitación y discreción 24/7' }
     ],
     gallery: [
       '/assets/champagne-suite-bright.jpg',
-      '/assets/jacuzzi-suite.jpg',
-      '/assets/champagne-suite.jpg'
+      '/assets/imagen3.jpeg',
+      '/assets/imagen4.jpeg',
+      '/assets/jacuzzi-suite.jpg'
     ],
     desc: 'Tina de hidromasaje con luces de cromoterapia sumergidas, ambientación romántica, espejo panorámico y cama King.',
     features: [
@@ -34,7 +35,7 @@ export const SUITES_DATA = {
   },
   gamer: {
     id: 'gamer',
-    name: 'Suite Gamer PS5',
+    name: 'Habitación Gamer PS5',
     category: 'gamer',
     hours4: 70,
     hours6: 95,
@@ -52,8 +53,8 @@ export const SUITES_DATA = {
     ],
     gallery: [
       '/assets/gamer-suite-bright.jpg',
-      '/assets/gamer-suite.jpg',
-      '/assets/galaxy-suite.jpg'
+      '/assets/imagen1.jpeg',
+      '/assets/gamer-suite.jpg'
     ],
     desc: 'Equipada con PlayStation 5, mandos duales, pantalla 65" 4K HDR, luces LED RGB sincronizadas y cama King size.',
     features: [
@@ -67,7 +68,7 @@ export const SUITES_DATA = {
   },
   sauna: {
     id: 'sauna',
-    name: 'Suite Sauna Master',
+    name: 'Habitación Sauna Master',
     category: 'sauna',
     hours4: 120,
     hours6: 150,
@@ -75,13 +76,13 @@ export const SUITES_DATA = {
     area: '56 m²',
     capacity: '2 huéspedes',
     thumb: '/assets/sauna-suite.jpg',
-    badge: 'Suite Presidencial',
+    badge: 'Habitación Presidencial',
     sedes: 'Los Olivos (Naranjal)',
     quote: 'Circuito privado de sauna seco finlandés y tina de hidromasaje para máximo relax.',
     bullets: [
       { icon: 'sauna', text: 'Cabina privada de sauna seco finlandés en madera noble' },
       { icon: 'bath', text: 'Jacuzzi hidromasaje climatizado y doble ducha española' },
-      { icon: 'lounge', text: 'Zona lounge de estar con batas y servicio a la suite' }
+      { icon: 'lounge', text: 'Zona lounge de estar con batas y servicio a la habitación' }
     ],
     gallery: [
       '/assets/sauna-suite.jpg',
@@ -94,13 +95,13 @@ export const SUITES_DATA = {
       'Jacuzzi Hidromasaje Grande Climatizado',
       'Zona Lounge & Sala de estar',
       'Doble ducha española y batas',
-      'Servicio a la suite 24/7',
+      'Servicio a la habitación 24/7',
       'Cochera interna directa'
     ]
   },
   galaxy: {
     id: 'galaxy',
-    name: 'Suite Galaxy Neón',
+    name: 'Habitación Galaxy Neón',
     category: 'galaxy',
     hours4: 80,
     hours6: 110,
@@ -118,8 +119,8 @@ export const SUITES_DATA = {
     ],
     gallery: [
       '/assets/galaxy-suite.jpg',
-      '/assets/cocktail-lounge.jpg',
-      '/assets/miraflores-deluxe.jpg'
+      '/assets/fondo.jpeg',
+      '/assets/imagen2.jpeg'
     ],
     desc: 'Techo proyector de galaxias y constelaciones ópticas, luces neón personalizables y sonido envolvente Bluetooth.',
     features: [
@@ -151,8 +152,8 @@ export const SUITES_DATA = {
     ],
     gallery: [
       '/assets/lobby.jpg',
-      '/assets/miraflores-deluxe.jpg',
-      '/assets/cocktail-lounge.jpg'
+      '/assets/fondo2.jpeg',
+      '/assets/miraflores-deluxe.jpg'
     ],
     desc: 'Diseño minimalista moderno, cama King, Smart TV streaming, baño privado de lujo y máxima privacidad discreta.',
     features: [
@@ -167,7 +168,7 @@ export const SUITES_DATA = {
 };
 
 export const SUITE_CATEGORIES = [
-  { id: 'all', label: 'Todas las Suites' },
+  { id: 'all', label: 'Todas las Habitaciones' },
   { id: 'jacuzzi', label: 'Jacuzzi VIP' },
   { id: 'gamer', label: 'Gamer PS5' },
   { id: 'sauna', label: 'Sauna Master' },

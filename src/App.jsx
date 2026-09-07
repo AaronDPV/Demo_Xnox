@@ -47,6 +47,7 @@ function AppContent() {
       <main className={(
         location.pathname === '/' || 
         location.pathname.startsWith('/suites') || 
+        location.pathname.startsWith('/habitaciones') || 
         location.pathname.startsWith('/sedes') || 
         location.pathname.startsWith('/promociones') || 
         location.pathname.startsWith('/nosotros')
@@ -60,6 +61,7 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<HomePage onOpenVideo={setActiveVideo} />} />
             <Route path="/suites" element={<SuitesPage />} />
+            <Route path="/habitaciones" element={<SuitesPage />} />
             <Route path="/promociones" element={<PromocionesPage />} />
             <Route path="/nosotros" element={<NosotrosPage />} />
             <Route path="/reservas" element={<BookingPage />} />
@@ -81,7 +83,7 @@ function AppContent() {
         onClose={() => setActiveVideo(null)} 
         onReserveVideoSuite={(roomId) => {
           setActiveVideo(null);
-          const roomName = roomId ? (SUITES_DATA[roomId]?.name || roomId) : 'una suite temática';
+          const roomName = roomId ? (SUITES_DATA[roomId]?.name || roomId) : 'una habitación temática';
           const waUrl = `https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent(`Hola Hotel XNOX, vi el video y deseo reservar la habitación "${roomName}". ¿Tienen disponibilidad?`)}`;
           window.open(waUrl, '_blank', 'noopener,noreferrer');
         }}

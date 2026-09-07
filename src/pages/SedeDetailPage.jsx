@@ -111,6 +111,7 @@ export function SedeDetailPage() {
   const { sedeId } = useParams();
   const navigate = useNavigate();
   const [selectedGalleryImg, setSelectedGalleryImg] = useState(null);
+  const [activeGalleryIdx, setActiveGalleryIdx] = useState(0);
 
   // Buscar la sede correspondiente (por id directo o alias)
   const currentSedeId = (sedeId || 'miraflores').toLowerCase();
@@ -119,7 +120,16 @@ export function SedeDetailPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.title = `Sede ${sede.name} | Hotel XNOX Experience Lima`;
+    setActiveGalleryIdx(0);
   }, [sede]);
+
+  const handlePrevGallery = () => {
+    setActiveGalleryIdx(prev => (prev - 1 + 6) % 6);
+  };
+
+  const handleNextGallery = () => {
+    setActiveGalleryIdx(prev => (prev + 1) % 6);
+  };
 
   // Obtener habitaciones exclusivas para esta sede
   const roomsInSede = (sede.roomIds || []).map(id => SUITES_DATA[id]).filter(Boolean);
@@ -149,11 +159,11 @@ export function SedeDetailPage() {
   // Galería de fotos exclusiva para la sede
   const galleryPhotos = [
     { src: sede.photo, title: `Vista y Fachada Sede ${sede.name}`, tag: 'Exterior & Cochera' },
-    { src: '/assets/jacuzzi-suite.jpg', title: 'Suite Jacuzzi Climatizado', tag: 'Hidromasaje' },
-    { src: '/assets/champagne-suite-bright.jpg', title: 'Decoración Romántica & Champagne', tag: 'Packs Parejas' },
-    { src: '/assets/gamer-suite-bright.jpg', title: 'Suite Gamer PS5 en 4K', tag: 'Entretenimiento' },
+    { src: '/assets/imagen3.jpeg', title: 'Habitación Jacuzzi & Ambiente XNOX', tag: 'Hidromasaje' },
+    { src: '/assets/imagen1.jpeg', title: 'Habitación Gamer PS5 & Luces Neón', tag: 'Entretenimiento' },
+    { src: '/assets/imagen4.jpeg', title: 'Baño de Lujo Sensorial LED', tag: 'Acabados VIP' },
+    { src: '/assets/fondo.jpeg', title: 'Atmósfera Sensorial de Lujo', tag: 'Atmósfera XNOX' },
     { src: '/assets/cocktail-lounge.jpg', title: 'Coctelería de Autor & Bar', tag: 'Room Service' },
-    { src: '/assets/hero-terrace.jpg', title: 'Ambiente Nocturno de Lujo', tag: 'Atmósfera XNOX' },
   ];
 
   // Experiencias de la sede con elegantes iconos SVG sin emojis
@@ -165,7 +175,7 @@ export function SedeDetailPage() {
         </svg>
       ),
       title: 'Coctelería de Autor & Room Service 24H',
-      desc: 'Carta exclusiva de tragos, cócteles de autor y piqueos gourmet preparados al momento y servidos con absoluta discreción directamente en tu suite.',
+      desc: 'Carta exclusiva de tragos, cócteles de autor y piqueos gourmet preparados al momento y servidos con absoluta discreción directamente en tu habitación.',
       img: '/assets/cocktail-lounge.jpg'
     },
     {
@@ -349,7 +359,7 @@ export function SedeDetailPage() {
                         className="btn-mini-book"
                         style={{ textDecoration: 'none' }}
                       >
-                        <span>Reservar Suite</span>
+                        <span>Reservar Habitación</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <line x1="5" y1="12" x2="19" y2="12"></line>
                           <polyline points="12 5 19 12 12 19"></polyline>
@@ -540,8 +550,8 @@ export function SedeDetailPage() {
         </div>
       </section>
 
-      {/* 6. Galería Fotográfica de la Sede */}
-      <section className="sede-gallery-section">
+      {/* 6. Galería Fotográfica de la Sede - Showcase Interactivo */}
+      <section className="sede-gallery-section" aria-label="Galería Visual de la Sede">
         <div className="container">
           <div className="section-header reveal-on-scroll">
             <span className="section-tag">FOTOGRAFÍAS REALES</span>
@@ -549,32 +559,60 @@ export function SedeDetailPage() {
             <p>Conoce los espacios, detalles y acabados de primera calidad de nuestras instalaciones.</p>
           </div>
 
-          <div className="sede-gallery-mosaic-grid">
-            {galleryPhotos.map((photo, pIdx) => (
-              <div 
-                key={pIdx} 
-                className={`sede-gallery-item reveal-on-scroll reveal-scale reveal-stagger-${(pIdx % 3) + 1}`}
-                onClick={() => setSelectedGalleryImg(photo)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter') setSelectedGalleryImg(photo); }}
+          <div className="sede-showcase-gallery reveal-on-scroll">
+            {/* 1. Imagen Principal en Grande (Sin texto encima) */}
+            <div className="sede-gallery-main-viewport">
+              <img 
+                key={activeGalleryIdx} 
+                src={galleryPhotos[activeGalleryIdx]?.src} 
+                alt={galleryPhotos[activeGalleryIdx]?.title}
+                className="sede-gallery-featured-img animate-gallery-swap" 
+                onClick={() => setSelectedGalleryImg(galleryPhotos[activeGalleryIdx])}
+                title="Haz clic para ver en pantalla completa"
+              />
+
+              {/* Botones de navegación sobre la imagen grande */}
+              <button 
+                type="button" 
+                className="gallery-nav-arrow prev" 
+                onClick={(e) => { e.stopPropagation(); handlePrevGallery(); }}
+                aria-label="Foto anterior"
               >
-                <img src={photo.src} alt={photo.title} className="sede-gallery-img" loading="lazy" />
-                <div className="sede-gallery-overlay">
-                  <span className="sede-gallery-tag">{photo.tag}</span>
-                  <h4 className="sede-gallery-title">{photo.title}</h4>
-                  <span className="sede-gallery-zoom-hint flex items-center justify-center gap-1.5">
-                    <span>Ver Foto</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="11" cy="11" r="8"/>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                      <line x1="11" y1="8" x2="11" y2="14"/>
-                      <line x1="8" y1="11" x2="14" y2="11"/>
-                    </svg>
-                  </span>
-                </div>
+                ‹
+              </button>
+              <button 
+                type="button" 
+                className="gallery-nav-arrow next" 
+                onClick={(e) => { e.stopPropagation(); handleNextGallery(); }}
+                aria-label="Foto siguiente"
+              >
+                ›
+              </button>
+
+              {/* Contador discreto */}
+              <div className="gallery-counter-pill">
+                <span>{activeGalleryIdx + 1} / {galleryPhotos.length}</span>
               </div>
-            ))}
+            </div>
+
+            {/* 2. Miniaturas al Lado (Sin texto encima) */}
+            <div className="sede-gallery-thumbs-grid">
+              {galleryPhotos.map((photo, pIdx) => {
+                const isActive = pIdx === activeGalleryIdx;
+                return (
+                  <button
+                    key={pIdx}
+                    type="button"
+                    className={`sede-gallery-thumb-btn ${isActive ? 'is-active' : ''}`}
+                    onClick={() => setActiveGalleryIdx(pIdx)}
+                    aria-label={`Ver foto ${pIdx + 1}`}
+                  >
+                    <img src={photo.src} alt="" className="sede-thumb-img" loading="lazy" />
+                    {isActive && <div className="thumb-active-border"></div>}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -622,7 +660,7 @@ export function SedeDetailPage() {
         <div className="container">
           <div className="other-sedes-header reveal-on-scroll">
             <h3>Conoce también nuestras otras 3 sedes en Lima</h3>
-            <p>Ubicaciones estratégicas en Lima con cocheras privadas y suites temáticas exclusivas</p>
+            <p>Ubicaciones estratégicas en Lima con cocheras privadas y habitaciones temáticas exclusivas</p>
           </div>
 
           <div className="other-sedes-grid">

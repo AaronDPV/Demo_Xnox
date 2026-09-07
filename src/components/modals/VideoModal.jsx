@@ -60,7 +60,7 @@ export function VideoModal({ video, onClose, onReserveVideoSuite }) {
                     if (onReserveVideoSuite) onReserveVideoSuite(video.linkedRoomId);
                   }}
                 >
-                  Reservar esta Suite
+                  Reservar esta Habitación
                 </button>
               </div>
             </div>

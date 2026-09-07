@@ -47,20 +47,20 @@ export function BookingBar() {
           <div className="booking-bar-field">
             <span className="field-eyebrow">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
-              Experiencia & Suite
+              Experiencia & Habitación
             </span>
             <select 
               className="booking-bar-select"
               value={selectedRoomType}
               onChange={(e) => setSelectedRoomType(e.target.value)}
-              aria-label="Seleccionar tipo de suite"
+              aria-label="Seleccionar tipo de habitación"
             >
-              <option value="all">Todas las Suites</option>
-              <option value="jacuzzi">Suite Jacuzzi VIP</option>
-              <option value="gamer">Suite Gamer PS5</option>
-              <option value="sauna">Master Suite Sauna</option>
-              <option value="galaxy">Suite Galaxy Neón</option>
-              <option value="confort">Suite Confort</option>
+              <option value="all">Todas las Habitaciones</option>
+              <option value="jacuzzi">Habitación Jacuzzi VIP</option>
+              <option value="gamer">Habitación Gamer PS5</option>
+              <option value="sauna">Habitación Sauna Master</option>
+              <option value="galaxy">Habitación Galaxy Neón</option>
+              <option value="confort">Habitación Confort</option>
             </select>
           </div>
 

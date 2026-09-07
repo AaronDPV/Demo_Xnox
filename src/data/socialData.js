@@ -2,14 +2,14 @@ export const INSTAGRAM_STORIES = [
   {
     id: 'story-gamer',
     name: 'Gamer PS5',
-    title: 'Suite Gamer con PS5',
+    title: 'Habitación Gamer con PS5',
     img: '/assets/reel-gamer.jpg',
     avatar: '/assets/gamer-suite.jpg'
   },
   {
     id: 'story-jacuzzi',
     name: 'Jacuzzi VIP',
-    title: 'Suite Jacuzzi VIP',
+    title: 'Habitación Jacuzzi VIP',
     img: '/assets/reel-jacuzzi.jpg',
     avatar: '/assets/jacuzzi-suite.jpg'
   },
@@ -23,7 +23,7 @@ export const INSTAGRAM_STORIES = [
   {
     id: 'story-galaxy',
     name: 'Galaxy Room',
-    title: 'Suite Galaxy Neón',
+    title: 'Habitación Galaxy Neón',
     img: '/assets/galaxy-suite.jpg',
     avatar: '/assets/galaxy-suite.jpg'
   },
@@ -46,9 +46,9 @@ export const INSTAGRAM_STORIES = [
 export const TIKTOK_VIDEOS = [
   {
     id: 'tiktok-gamer',
-    title: 'El mejor plan en pareja en Suite Gamer XNOX',
+    title: 'El mejor plan en pareja en Habitación Gamer XNOX',
     author: '@xnox_hotel • Oficial',
-    caption: '¿Una partida en la Suite Gamer? El hotel temático con PS5 más pedido de Lima...',
+    caption: '¿Una partida en la Habitación Gamer? El hotel temático con PS5 más pedido de Lima...',
     tags: '#HotelGamer #XNOX #LimaNorte #PS5',
     music: 'Neon Nights - Nightdrive',
     views: '1.4M views',
@@ -58,7 +58,7 @@ export const TIKTOK_VIDEOS = [
   },
   {
     id: 'tiktok-jacuzzi',
-    title: 'Noche romántica de ensueño en Suite Jacuzzi VIP',
+    title: 'Noche romántica de ensueño en Habitación Jacuzzi VIP',
     author: '@hotel.xnox',
     caption: 'Sorprende a tu pareja con un jacuzzi con pétalos de rosa y champagne...',
     tags: '#JacuzziVIP #HotelXnox #DateNight #Lima',
@@ -70,9 +70,9 @@ export const TIKTOK_VIDEOS = [
   },
   {
     id: 'tiktok-sauna',
-    title: 'Suite con sauna finlandés privado en Los Olivos',
+    title: 'Habitación con sauna finlandés privado en Los Olivos',
     author: '@xnox_hotel',
-    caption: 'Tour por la Master Suite con sauna privado y jacuzzi hidromasaje en Naranjal.',
+    caption: 'Tour por la Habitación Master con sauna privado y jacuzzi hidromasaje en Naranjal.',
     tags: '#Sauna #SpaPrivado #HotelXnox #LosOlivos',
     music: 'Chill Deep House Beat',
     views: '520K views',
@@ -82,9 +82,9 @@ export const TIKTOK_VIDEOS = [
   },
   {
     id: 'tiktok-galaxy',
-    title: 'Suite con cielo estrellado de constelaciones en Miraflores',
+    title: 'Habitación con cielo estrellado de constelaciones en Miraflores',
     author: '@hotel.xnox',
-    caption: 'Dormir bajo las estrellas en plena ciudad. Conoce la Suite Galaxy Neón.',
+    caption: 'Dormir bajo las estrellas en plena ciudad. Conoce la Habitación Galaxy Neón.',
     tags: '#Galaxy #Estrellas #Miraflores #Boutique',
     music: 'Cosmic Dreams - Synthwave',
     views: '890K views',

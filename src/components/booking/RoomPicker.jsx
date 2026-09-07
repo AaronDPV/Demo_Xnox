@@ -8,7 +8,7 @@ export function RoomPicker({ selectedRoomId, onSelectRoom, currentModality }) {
     <div className="step-block">
       <div className="step-header">
         <span className="step-num">3</span>
-        <h3 className="step-title">Selecciona tu Suite Temática</h3>
+        <h3 className="step-title">Selecciona tu Habitación Temática</h3>
       </div>
       <div className="room-picker-list">
         {suitesList.map((room) => {

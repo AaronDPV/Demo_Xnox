@@ -4,43 +4,43 @@ import { useNavigate } from 'react-router-dom';
 const FEATURED_ROOMS = [
   {
     id: 'jacuzzi',
-    title: 'Suite Jacuzzi VIP',
+    title: 'Habitación Jacuzzi VIP',
     tag: 'Tina de Hidromasaje',
     specs: 'Cromoterapia LED • Cama King • Climatizado',
     price: 'S/ 99',
     unit: '4h',
     img: '/assets/champagne-suite-bright.jpg',
-    alt: 'Suite Jacuzzi VIP con hidromasaje y pétalos'
+    alt: 'Habitación Jacuzzi VIP con hidromasaje y pétalos'
   },
   {
     id: 'gamer',
-    title: 'Suite Gamer PS5',
+    title: 'Habitación Gamer PS5',
     tag: 'Consola PlayStation 5',
     specs: 'Pantalla 65" 4K • Neón RGB • Fibra Óptica',
     price: 'S/ 70',
     unit: '4h',
     img: '/assets/gamer-suite-bright.jpg',
-    alt: 'Suite Gamer con PlayStation 5 y luces neón'
+    alt: 'Habitación Gamer con PlayStation 5 y luces neón'
   },
   {
     id: 'sauna',
-    title: 'Master Suite Sauna',
+    title: 'Habitación Sauna Master',
     tag: 'Spa & Madera Noble',
     specs: 'Sauna Seco Finlandés • Jacuzzi • Lounge',
     price: 'S/ 120',
     unit: '4h',
     img: '/assets/sauna-suite.jpg',
-    alt: 'Master Suite con sauna seco finlandés en madera noble'
+    alt: 'Habitación Master con sauna seco finlandés en madera noble'
   },
   {
     id: 'galaxy',
-    title: 'Suite Galaxy Neón',
+    title: 'Habitación Galaxy Neón',
     tag: 'Experiencia Sensorial',
     specs: 'Techo Estelar 360° • Mood Light • Audio Hi-Fi',
     price: 'S/ 80',
     unit: '4h',
     img: '/assets/galaxy-suite.jpg',
-    alt: 'Suite Galaxy con proyector estelar y atmósfera de luces'
+    alt: 'Habitación Galaxy con proyector estelar y atmósfera de luces'
   }
 ];
 
@@ -48,13 +48,13 @@ export function VisualRoomsSection() {
   const navigate = useNavigate();
 
   return (
-    <section className="visual-rooms-section reveal-on-scroll" id="habitaciones" aria-label="Sección de Habitaciones y Suites">
+    <section className="visual-rooms-section reveal-on-scroll" id="habitaciones" aria-label="Sección de Habitaciones">
       <div className="container">
         
         {/* Cabecera Editorial Limpia */}
         <div className="section-header">
           <span className="section-tag">Colección Exclusiva</span>
-          <h2>Habitaciones & <span className="text-shimmer-red">Suites de Autor</span></h2>
+          <h2>Nuestras <span className="text-shimmer-red">Habitaciones de Autor</span></h2>
           <p>Espacios creados para desconectar con total privacidad, hidromasajes de mármol y tecnología de vanguardia.</p>
           <div className="vertical-scroll-line" style={{ height: '42px', margin: '14px auto 0' }}></div>
         </div>
@@ -121,7 +121,7 @@ export function VisualRoomsSection() {
             onClick={() => navigate('/suites')}
             style={{ padding: '14px 34px', fontSize: '0.95rem' }}
           >
-            Ver Todas las Suites & Tarifas por Horas →
+            Ver Todas las Habitaciones & Tarifas por Horas →
           </button>
         </div>
 
