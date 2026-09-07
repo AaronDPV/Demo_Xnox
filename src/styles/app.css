@@ -1212,24 +1212,37 @@ a:hover {
 }
 
 .hero-section-asturias .hero-background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.96;
+  opacity: 0;
+  visibility: hidden;
   filter: brightness(0.92) contrast(1.05) saturate(1.08);
-  transform: scale(1.01);
+  transform: scale(1.05);
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1), transform 6s ease-out, visibility 1.4s;
+  pointer-events: none;
 }
 
-/* Warm, luminous overlay that lets natural colors and sunset shine without being gray */
+.hero-section-asturias .hero-background-img.active {
+  opacity: 0.96;
+  visibility: visible;
+  transform: scale(1.0);
+}
+
+/* Warm, luminous overlay that lets colors and lighting shine with high text legibility */
 .hero-overlay-asturias {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, 
-    rgba(12, 14, 18, 0.65) 0%, 
-    rgba(12, 14, 18, 0.2) 32%, 
-    rgba(12, 14, 18, 0.38) 62%, 
-    rgba(10, 11, 15, 0.88) 100%
-  );
+  background: radial-gradient(circle at center 35%, rgba(255, 10, 43, 0.12) 0%, transparent 65%),
+              linear-gradient(180deg, 
+                rgba(10, 11, 15, 0.72) 0%, 
+                rgba(10, 11, 15, 0.28) 32%, 
+                rgba(10, 11, 15, 0.42) 62%, 
+                rgba(8, 9, 12, 0.94) 100%
+              );
   z-index: 2;
 }
 
@@ -1241,7 +1254,7 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Eyebrow: — HOTEL XNOX EXPERIENCE — (Red luxury accent) */
+/* Eyebrow: — HOTEL XNOX EXPERIENCE — (Red luxury accent with fine side lines) */
 .hero-asturias-tag {
   display: inline-flex;
   align-items: center;
@@ -1267,11 +1280,11 @@ a:hover {
   opacity: 0.9;
 }
 
-/* Big Two-Tone Heading (Playfair Display / Prata Serif) */
+/* Big Two-Tone Heading (Prata / Playfair Display Serif - Idéntica a la referencia) */
 .hero-asturias-title {
-  font-family: 'Playfair Display', 'Prata', 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(3.2rem, 7vw, 5.8rem);
-  font-weight: 700;
+  font-family: 'Prata', 'Playfair Display', 'DM Serif Display', Georgia, serif;
+  font-size: clamp(3.2rem, 7.2vw, 5.8rem);
+  font-weight: 400;
   line-height: 1.06;
   letter-spacing: -0.015em;
   margin-bottom: 16px;
@@ -1284,6 +1297,7 @@ a:hover {
 .hero-title-red {
   color: #E61E38;
   display: block;
+  font-weight: 400;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85), 0 0 35px rgba(230, 30, 56, 0.5);
   letter-spacing: -0.01em;
 }
@@ -1291,6 +1305,7 @@ a:hover {
 .hero-title-white {
   color: #FFFFFF;
   display: block;
+  font-weight: 400;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85);
   letter-spacing: -0.01em;
 }
@@ -1327,36 +1342,36 @@ a:hover {
   margin-bottom: 36px;
 }
 
-/* Single Hero CTA Button in Crimson Red (Scrolls down to habitaciones & suites - segunda imagen) */
+/* Single Hero CTA Button in Crimson Red (Matches XNOX Brand) */
 .btn-hero-asturias.btn-hero-red.btn-hero-single {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  padding: 16px 42px;
+  padding: 17px 44px;
   border-radius: 50px;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #E61E38 0%, #B80710 100%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.38);
+  background: linear-gradient(135deg, #FF1A36 0%, #E60026 50%, #9B0014 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: #FFFFFF;
-  font-family: var(--font-subheading);
+  font-family: 'Montserrat', 'Outfit', var(--font-subheading);
   font-size: 0.92rem;
   font-weight: 800;
-  letter-spacing: 1.8px;
+  letter-spacing: 2.2px;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 32px rgba(230, 30, 56, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 38px rgba(230, 0, 38, 0.58), 0 0 24px rgba(255, 26, 54, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.45);
 }
 
 .btn-hero-asturias.btn-hero-red.btn-hero-single:hover {
-  background: linear-gradient(135deg, #FF2B49 0%, #E61E38 100%);
+  background: linear-gradient(135deg, #FF3853 0%, #FF0D2E 50%, #B80018 100%);
   color: #FFFFFF;
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 44px rgba(230, 30, 56, 0.75), 0 0 25px rgba(255, 24, 56, 0.45);
-  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 16px 52px rgba(230, 0, 38, 0.8), 0 0 32px rgba(255, 30, 56, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .hero-scroll-icon {
@@ -1419,19 +1434,29 @@ a:hover {
 }
 
 .hero-asturias-dots .h-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.45);
-  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.35s ease;
+}
+
+.hero-asturias-dots .h-dot:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.2);
 }
 
 .hero-asturias-dots .h-dot.active {
-  width: 26px;
-  height: 3.5px;
+  width: 28px;
+  height: 4px;
   border-radius: 4px;
   background: var(--xnox-red);
   box-shadow: 0 0 12px rgba(216, 30, 52, 0.6);
+  transform: none;
 }
 
 /* ==========================================================================
