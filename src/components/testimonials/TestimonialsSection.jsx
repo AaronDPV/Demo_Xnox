@@ -167,7 +167,7 @@ export function TestimonialsSection() {
     <section className="testimonials-simple-section" id="testimonios">
       <div className="container">
         {/* Cabecera Limpia & Auténtica */}
-        <div className="testimonials-simple-header text-center">
+        <div className="testimonials-simple-header text-center reveal-on-scroll">
           <div className="google-badge-pill">
             <svg width="18" height="18" viewBox="0 0 24 24" className="google-svg-icon">
               <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
@@ -191,7 +191,7 @@ export function TestimonialsSection() {
       {/* Ticker / Carrusel Táctil Continuo */}
       <div 
         ref={scrollRef}
-        className="testimonials-marquee-wrapper"
+        className="testimonials-marquee-wrapper reveal-on-scroll reveal-scale"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => { if (!isMouseDown.current) setIsPaused(false); }}
         onTouchStart={handleTouchStart}

@@ -21,7 +21,6 @@ export function SuiteCard({ room, pricingMode, onReserve, index = 0 }) {
     >
       <div className="suite-image-container curtain-container">
         <div className="curtain-overlay"></div>
-        <span className="suite-card-badge">{room.badge}</span>
         <img src={room.thumb} alt={room.name} className="suite-img" loading="lazy" />
         <div className="suite-image-overlay"></div>
         <span className="suite-sedes-pill">{room.sedes}</span>

@@ -1,28 +1,70 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MAIN_SEDES_LIST } from '../../data/sedesData';
 
-export function SedesSection({ onSelectSede }) {
-  return (
-    <section className="sedes-section sedes-section-xnox" id="sedes" aria-label="Sedes de Hotel XNOX Experience">
-      <div className="container">
-        <div className="section-header reveal-on-scroll">
-          <span className="section-tag">Ubicaciones Estratégicas</span>
-          <h2>Nuestras <span className="text-shimmer-red">4 Sedes en Lima</span></h2>
-          <p>Edificios modernos de estreno con cochera privada interna, portón automático y máxima discreción.</p>
-          <div className="vertical-scroll-line" style={{ height: '36px', margin: '14px auto 0' }}></div>
-        </div>
+export function SedesSection({ onSelectSede, showHeroBanner = false }) {
+  const navigate = useNavigate();
 
-        <div className="sedes-xnox-grid">
+  const handleCardClick = (sede) => {
+    if (onSelectSede) onSelectSede(sede.id);
+    navigate(`/sedes/${sede.id}`);
+  };
+
+  return (
+    <div className={`sedes-section-wrapper ${showHeroBanner ? 'has-hero-banner' : ''}`}>
+      {/* 1. Mini Hero Banner con Imagen de Fondo (Igual que en Suites) */}
+      {showHeroBanner && (
+        <section className="suites-hero-banner sedes-hero-banner" aria-label="Cabecera Sedes Hotel XNOX">
+          <div className="suites-hero-bg">
+            <img 
+              src="/assets/hero-terrace.jpg" 
+              alt="Sedes Hotel XNOX en Lima" 
+              className="suites-hero-img" 
+            />
+            <div className="suites-hero-overlay"></div>
+          </div>
+
+          <div className="container suites-hero-content">
+            <div className="hero-asturias-tag animate-fade-in-down" style={{ marginBottom: '14px' }}>
+              <span>UBICACIONES ESTRATÉGICAS</span>
+            </div>
+            
+            <h1 className="suites-hero-title animate-fade-in-up">
+              Nuestras <span className="text-shimmer-red">4 Sedes en Lima</span>
+            </h1>
+
+            <div className="hero-asturias-line animate-fade-in-up" style={{ margin: '14px auto' }}></div>
+
+            <p className="suites-hero-desc animate-fade-in-up delay-1">
+              Edificios modernos de estreno con cochera privada interna, portón automático y máxima discreción.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* 2. Sección Principal con la Cuadrícula de 4 Sedes */}
+      <section className="sedes-section sedes-section-xnox" id="sedes" aria-label="Sedes de Hotel XNOX Experience">
+        <div className="container">
+          {!showHeroBanner && (
+            <div className="section-header reveal-on-scroll">
+              <span className="section-tag">Ubicaciones Estratégicas</span>
+              <h2>Nuestras <span className="text-shimmer-red">4 Sedes en Lima</span></h2>
+              <p>Edificios modernos de estreno con cochera privada interna, portón automático y máxima discreción.</p>
+              <div className="vertical-scroll-line" style={{ height: '36px', margin: '14px auto 0' }}></div>
+            </div>
+          )}
+
+          <div className="sedes-xnox-grid">
           {MAIN_SEDES_LIST.map((sede, idx) => (
             <div 
               key={sede.id} 
               className={`sede-card-xnox reveal-on-scroll reveal-scale reveal-stagger-${idx + 1}`}
-              onClick={() => onSelectSede ? onSelectSede(sede.id) : null}
+              onClick={() => handleCardClick(sede)}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
-                  onSelectSede && onSelectSede(sede.id);
+                  handleCardClick(sede);
                 }
               }}
             >
@@ -72,7 +114,7 @@ export function SedesSection({ onSelectSede }) {
         </div>
       </div>
     </section>
+  </div>
   );
 }
-
 export default SedesSection;

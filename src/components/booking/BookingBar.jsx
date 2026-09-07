@@ -10,11 +10,11 @@ export function BookingBar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    let query = `/reservas?sede=${selectedSede}&modality=${selectedModality === 'hours' ? 'hours4' : 'pernocte'}`;
-    if (selectedRoomType !== 'all') {
-      query += `&room=${selectedRoomType}`;
-    }
-    navigate(query);
+    const sedeName = selectedSede === 'miraflores' ? 'Miraflores' : selectedSede === 'alisos' ? 'Los Olivos (Alisos)' : selectedSede === 'naranjal' ? 'Los Olivos (Naranjal)' : 'Centro de Lima';
+    const modalityName = selectedModality === 'hours' ? 'Estadía por Horas (4 Horas)' : 'Pernocte Completo';
+    const msg = `Hola Hotel XNOX, deseo consultar disponibilidad en la sede ${sedeName} para ${modalityName}.`;
+    const waUrl = `https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (

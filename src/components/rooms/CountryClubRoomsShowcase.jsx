@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SUITES_DATA } from '../../data/suitesData';
+import { WhatsAppIcon } from '../common/WhatsAppIcon';
 
 // SVGs elegantes de línea fina para los iconos de especificaciones con acento rojo y negro
 function BulletIcon({ type }) {
@@ -200,7 +201,7 @@ export function CountryClubRoomsShowcase({
           )}
 
           {/* 2. Cuadrícula Alternante Zig-Zag de Habitaciones */}
-          <div className="country-rooms-stack">
+          <div className="country-rooms-stack" key={selectedCategory}>
             {displayedSuites.map((room, idx) => {
             const isImageLeft = idx % 2 === 1; // Alternancia: par contenido izq, impar imagen izq
             const photoList = room.gallery && room.gallery.length > 0 ? room.gallery : [room.thumb];
@@ -210,16 +211,20 @@ export function CountryClubRoomsShowcase({
             return (
               <article 
                 key={room.id} 
-                className={`country-room-card ${isImageLeft ? 'image-left' : 'image-right'} reveal-on-scroll`}
+                className={`country-room-card ${isImageLeft ? 'image-left' : 'image-right'} reveal-on-scroll suite-slide-in-left bg-white dark:bg-[#141722] border border-black/10 dark:border-white/10`}
+                style={{
+                  animationDelay: `${idx * 0.1}s`,
+                  transitionDelay: `${idx * 0.1}s`
+                }}
               >
                 {/* Columna de Contenido */}
-                <div className="country-room-content">
+                <div className="country-room-content bg-white dark:bg-[#141722] transition-colors duration-300">
                   <div className="country-room-header">
-                    <h3 className="country-room-title">{room.name}</h3>
+                    <h3 className="country-room-title text-[#111317] dark:text-white transition-colors">{room.name}</h3>
                     
                     {/* Metadatos (Área, Huéspedes, Sedes) */}
                     <div className="country-room-meta">
-                      <div className="meta-specs-group">
+                      <div className="meta-specs-group text-[#4A5568] dark:text-[#CBD5E1]">
                         <span className="meta-item">
                           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
@@ -252,13 +257,13 @@ export function CountryClubRoomsShowcase({
                       {room.bullets?.map((b, bIdx) => (
                         <div key={bIdx} className="bullet-row">
                           <BulletIcon type={b.icon} />
-                          <span className="bullet-text">{b.text}</span>
+                          <span className="bullet-text text-[#2D3748] dark:text-[#F1F5F9] transition-colors">{b.text}</span>
                         </div>
                       ))}
                     </div>
 
                     {/* Frase Editorial Evocativa */}
-                    <p className="country-room-quote">
+                    <p className="country-room-quote text-[#1A202C] dark:text-[#E2E8F0] transition-colors">
                       {room.quote}
                     </p>
                   </div>
@@ -268,7 +273,7 @@ export function CountryClubRoomsShowcase({
                     <div className="country-room-actions">
                       <button 
                         type="button" 
-                        className="btn-link-details"
+                        className="btn-link-details text-[#111317] dark:text-white transition-colors"
                         onClick={() => setModalRoom(room)}
                       >
                         Ver más detalles →
@@ -276,18 +281,20 @@ export function CountryClubRoomsShowcase({
 
                       <div className="country-room-cta-group">
                         <div className="country-room-price">
-                          <span className="price-from">Desde</span>
+                          <span className="price-from text-[#64748B] dark:text-[#94A3B8]">Desde</span>
                           <span className="price-currency">S/</span>
-                          <span className="price-amount">{room.hours4}</span>
-                          <span className="price-unit">/ 4h</span>
+                          <span className="price-amount text-[#0F131A] dark:text-white transition-colors">{room.hours4}</span>
+                          <span className="price-unit text-[#64748B] dark:text-[#94A3B8]">/ 4h</span>
                         </div>
-                        <button 
-                          type="button" 
+                        <a 
+                          href={`https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent(`Hola Hotel XNOX, deseo reservar la habitación "${room.name}" (Tarifa 4h: S/ ${room.hours4}). ¿Tienen disponibilidad?`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="btn-country-card-book"
-                          onClick={() => navigate(`/reservas?room=${room.id}&modality=hours4`)}
+                          style={{ textDecoration: 'none' }}
                         >
                           Reservar
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -311,8 +318,6 @@ export function CountryClubRoomsShowcase({
                     ))}
                   </div>
                   <div className="country-media-overlay"></div>
-
-                  <span className="country-media-tag">{room.badge}</span>
 
                   {/* Paginador interactivo inferior < 1/3 > estilo Country Club */}
                   {photoList.length > 1 && (
@@ -384,7 +389,6 @@ export function CountryClubRoomsShowcase({
 
             <div className="modal-room-header-img">
               <img src={modalRoom.thumb} alt={modalRoom.name} className="modal-room-img" />
-              <div className="modal-img-tag">{modalRoom.badge}</div>
             </div>
 
             <div className="modal-room-body">
@@ -416,17 +420,17 @@ export function CountryClubRoomsShowcase({
               </div>
 
               <div className="modal-action-bar">
-                <button 
-                  type="button" 
-                  className="btn btn-primary btn-block"
-                  onClick={() => {
-                    const id = modalRoom.id;
-                    setModalRoom(null);
-                    navigate(`/reservas?room=${id}&modality=hours4`);
-                  }}
+                <a 
+                  href={`https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent(`Hola Hotel XNOX, deseo reservar la habitación "${modalRoom.name}" (Tarifa 4h: S/ ${modalRoom.hours4}, 6h: S/ ${modalRoom.hours6}, Pernocte: S/ ${modalRoom.pernocte}). ¿Tienen disponibilidad?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary btn-block flex items-center justify-center gap-2"
+                  style={{ textDecoration: 'none' }}
+                  onClick={() => setModalRoom(null)}
                 >
-                  Continuar con la Reserva de esta Suite →
-                </button>
+                  <WhatsAppIcon size={20} />
+                  <span>Reservar esta Suite por WhatsApp →</span>
+                </a>
               </div>
             </div>
           </div>

@@ -24,8 +24,8 @@ export function useScrollReveal() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -30px 0px',
-      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.08,
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -39,33 +39,22 @@ export function useScrollReveal() {
     observeElements();
     const timer = setTimeout(observeElements, 250);
 
-    // MutationObserver para observar elementos que se montan dinámicamente en el DOM
-    // o re-aplicar is-revealed si una reconciliación de React reinició className mientras estaba en pantalla
+    // MutationObserver para observar nuevos elementos que se montan dinámicamente en el DOM
     const mutationObserver = new MutationObserver((mutations) => {
       let needsReobserve = false;
       mutations.forEach((m) => {
         if (m.type === 'childList') {
           needsReobserve = true;
-        } else if (m.type === 'attributes' && m.attributeName === 'class') {
-          const el = m.target;
-          if (el.classList?.contains('reveal-on-scroll') && !el.classList?.contains('is-revealed')) {
-            const rect = el.getBoundingClientRect();
-            const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-            if (isInView) {
-              el.classList.add('is-revealed');
-            }
-          }
         }
       });
       if (needsReobserve) {
         observeElements();
       }
     });
+
     mutationObserver.observe(document.body, { 
       childList: true, 
       subtree: true,
-      attributes: true,
-      attributeFilter: ['class']
     });
 
     // 2. Progreso de lectura de la página con requestAnimationFrame (máxima optimización)

@@ -99,7 +99,7 @@ export function ExperienceCarousel() {
       <div className="container">
         
         {/* Cabecera de Experiencias XNOX */}
-        <div className="section-header">
+        <div className="section-header reveal-on-scroll">
           <span className="section-tag">Vivencias Exclusivas</span>
           <h2>Experiencias <span className="text-shimmer-red">Hotel XNOX</span></h2>
           <p>Conoce los servicios y comodidades que transforman tu estancia: sauna privado, desayuno con barra libre, consolas PS5 en 4K y relax total.</p>
@@ -107,7 +107,7 @@ export function ExperienceCarousel() {
 
         {/* 3D Carousel Stage con Tarjetas de Imagen Entera */}
         <div 
-          className="carousel-3d-stage"
+          className="carousel-3d-stage reveal-on-scroll reveal-scale"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}

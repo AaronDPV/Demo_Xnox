@@ -8,6 +8,8 @@ import { Footer } from './components/common/Footer';
 import { VideoModal } from './components/modals/VideoModal';
 import { StoryModal } from './components/modals/StoryModal';
 import { useScrollReveal } from './hooks/useScrollReveal';
+import { ThemeProvider } from './context/ThemeContext';
+import { SUITES_DATA } from './data/suitesData';
 import './styles/app.css';
 
 // Lazy-loaded route pages for code-splitting and high performance
@@ -16,6 +18,9 @@ const SuitesPage = lazy(() => import('./pages/SuitesPage').then(m => ({ default:
 const BookingPage = lazy(() => import('./pages/BookingPage').then(m => ({ default: m.BookingPage })));
 const SocialPage = lazy(() => import('./pages/SocialPage').then(m => ({ default: m.SocialPage })));
 const SedesPage = lazy(() => import('./pages/SedesPage').then(m => ({ default: m.SedesPage })));
+const SedeDetailPage = lazy(() => import('./pages/SedeDetailPage').then(m => ({ default: m.SedeDetailPage })));
+const PromocionesPage = lazy(() => import('./pages/PromocionesPage').then(m => ({ default: m.PromocionesPage })));
+const NosotrosPage = lazy(() => import('./pages/NosotrosPage').then(m => ({ default: m.NosotrosPage })));
 const FaqPage = lazy(() => import('./pages/FaqPage').then(m => ({ default: m.FaqPage })));
 
 function AppContent() {
@@ -39,7 +44,13 @@ function AppContent() {
       <ScrollToTop />
       <Navbar />
 
-      <main className={(location.pathname === '/' || location.pathname.startsWith('/suites')) ? 'main-home' : 'main-inner'}>
+      <main className={(
+        location.pathname === '/' || 
+        location.pathname.startsWith('/suites') || 
+        location.pathname.startsWith('/sedes') || 
+        location.pathname.startsWith('/promociones') || 
+        location.pathname.startsWith('/nosotros')
+      ) ? 'main-home' : 'main-inner'}>
         <Suspense fallback={
           <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '16px', fontFamily: 'var(--font-heading)' }}>
             <div className="w-8 h-8 border-2 border-xnox-red border-t-transparent rounded-full animate-spin"></div>
@@ -49,9 +60,12 @@ function AppContent() {
           <Routes>
             <Route path="/" element={<HomePage onOpenVideo={setActiveVideo} />} />
             <Route path="/suites" element={<SuitesPage />} />
+            <Route path="/promociones" element={<PromocionesPage />} />
+            <Route path="/nosotros" element={<NosotrosPage />} />
             <Route path="/reservas" element={<BookingPage />} />
             <Route path="/social" element={<SocialPage onOpenStory={setActiveStory} onOpenVideo={setActiveVideo} />} />
             <Route path="/sedes" element={<SedesPage />} />
+            <Route path="/sedes/:sedeId" element={<SedeDetailPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="*" element={<HomePage onOpenVideo={setActiveVideo} />} />
           </Routes>
@@ -66,7 +80,10 @@ function AppContent() {
         video={activeVideo} 
         onClose={() => setActiveVideo(null)} 
         onReserveVideoSuite={(roomId) => {
-          navigate(roomId ? `/reservas?room=${roomId}` : '/reservas');
+          setActiveVideo(null);
+          const roomName = roomId ? (SUITES_DATA[roomId]?.name || roomId) : 'una suite temática';
+          const waUrl = `https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent(`Hola Hotel XNOX, vi el video y deseo reservar la habitación "${roomName}". ¿Tienen disponibilidad?`)}`;
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
         }}
       />
 
@@ -74,7 +91,9 @@ function AppContent() {
         story={activeStory} 
         onClose={() => setActiveStory(null)} 
         onReserveStorySuite={() => {
-          navigate('/reservas');
+          setActiveStory(null);
+          const waUrl = `https://api.whatsapp.com/send?phone=51936793821&text=${encodeURIComponent('Hola Hotel XNOX, deseo consultar disponibilidad y reservar una habitación.')}`;
+          window.open(waUrl, '_blank', 'noopener,noreferrer');
         }}
       />
     </div>
@@ -83,9 +102,11 @@ function AppContent() {
 
 export function App() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </ThemeProvider>
   );
 }
 

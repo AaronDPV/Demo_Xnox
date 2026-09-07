@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { useTheme } from '../../context/ThemeContext';
 
 export function Footer() {
+  const { isDark } = useTheme();
+  const logoSrc = isDark ? '/assets/xnox-transparent.png' : '/assets/xnox-blanco.png';
+
   return (
     <footer className="footer-luxury">
-      {/* Top Decorative Gold Border Accent */}
-      <div className="footer-gold-accent-line"></div>
+      {/* Top Decorative Brand Red Accent */}
+      <div className="footer-accent-line"></div>
 
       <div className="container">
         <div className="footer-top-grid">
@@ -15,7 +19,7 @@ export function Footer() {
           <div className="footer-brand-col">
             <Link to="/" className="footer-brand-link" aria-label="Inicio Hotel XNOX">
               <img 
-                src="/assets/xnox-blanco.png" 
+                src={logoSrc} 
                 alt="Hotel XNOX Experience" 
                 className="footer-logo-img" 
               />
@@ -69,14 +73,11 @@ export function Footer() {
           {/* Sedes & Direct Access */}
           <div className="footer-col">
             <h4 className="footer-col-title">Sedes & Navegación</h4>
-            <ul className="footer-nav-list">
-              <li><Link to="/sedes">Sede Miraflores (Boutique)</Link></li>
-              <li><Link to="/sedes">Sede Los Olivos (Naranjal)</Link></li>
-              <li><Link to="/sedes">Sede Los Olivos (Alisos)</Link></li>
-              <li><Link to="/reservas">Cotizar y Reservar</Link></li>
-              <li><Link to="/social">TikTok & Experiencias</Link></li>
+              <li><Link to="/promociones">Promociones Exclusivas</Link></li>
+              <li><Link to="/nosotros">Nosotros & Concepto</Link></li>
+              <li><Link to="/sedes">Sedes en Lima</Link></li>
+              <li><a href="https://api.whatsapp.com/send?phone=51936793821&text=Hola%20Hotel%20XNOX,%20deseo%20consultar%20disponibilidad%20y%20reservar%20una%20habitaci%C3%B3n" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a></li>
               <li><Link to="/faq">Preguntas Frecuentes</Link></li>
-            </ul>
           </div>
 
           {/* Contact & WhatsApp Action */}
