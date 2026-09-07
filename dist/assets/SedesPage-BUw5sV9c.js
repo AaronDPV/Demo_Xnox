@@ -1,1 +1,0 @@
-import{u as o,j as e}from"./index-wplpjo29.js";import{S as n}from"./SedesSection-CiWtTl1N.js";import"./sedesData-CUyk1QXG.js";function p(){const s=o(),t=a=>{s(`/reservas?sede=${a}`)};return e.jsx("div",{className:"page-sedes",style:{paddingTop:"40px"},children:e.jsx(n,{onSelectSede:t})})}export{p as SedesPage};

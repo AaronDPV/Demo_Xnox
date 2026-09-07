@@ -1,1 +1,0 @@
-import{j as s}from"./index-wplpjo29.js";import{C as e}from"./CountryClubRoomsShowcase-DSXjA-9Y.js";import"./suitesData-CPk_adZv.js";function a(){return s.jsx("div",{className:"page-suites",children:s.jsx(e,{isCurated:!1,showFilters:!0,showHeroBanner:!0})})}export{a as SuitesPage,a as default};
